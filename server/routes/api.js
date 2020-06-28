@@ -29,12 +29,7 @@ let upload = multer({
     storage: storage
 });
 
-router.get('/audios', (req, res) => {
-    try {
-        upload.single('audio')
-    } catch (err) {
-        console.log(err)
-    }
+router.get('/audios', upload.single('audio'), (req, res) => {
     res.json(audioReposiroty.getData());
 });
 
