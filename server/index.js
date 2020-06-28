@@ -10,6 +10,6 @@ app.use ('/api', require('./routes/api'));
 app.use (fileUpload())
 app.use (fallback ('index.html', { root: 'dist' }));
 
-app.listen (8080, () => {
+app.listen (process.env.PORT, () => {
     console.log ('should work');
 })
