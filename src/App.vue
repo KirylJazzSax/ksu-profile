@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav w-100 justify-content-around">
                     <li class="nav-item">
-                        <router-link class-active="active" class="nav-link" to="/">About</router-link>
+                        <router-link class-active="active" class="nav-link" to="/about">About</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class-active="active" class="nav-link" to="/works">Works</router-link>
