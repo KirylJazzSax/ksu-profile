@@ -1,23 +1,15 @@
 <template>
-    <div class="w-25">
-        <div v-for="(audio, key) in audios" :key="key">
-            <aplayer :music="audio" />
-            <!-- <div class="btn btn-danger" :data-audio-id="key" @click="remove">Delete</div> -->
-        </div>
-    </div>
+    <div class="w-25" ref="audios"></div>
 </template>
 <script>
 import axios from 'axios'
-import aplayer from 'vue-aplayer'
 
 export default {
     name: 'Audios',
-    components: {
-        aplayer
-    },
     data () {
         return {
             audios: null,
+            awsUrl: 'https://ksu-profile.s3.eu-central-1.amazonaws.com/'
         }
     },
     mounted() {
@@ -27,26 +19,15 @@ export default {
         loadAudios: async function () {
             try {
                 let response = await axios.get('/api/audios')
-                this.audios = response.data
-                // Object.keys(response.data).forEach(key => {
-                //     this.audios.push({
-                //         title: response.data[key].title,
-                //         src: 'uploads/' + response.data[key].audioNameGenerated,
-                //         artist: response.data[key].artist ?? ' '
-                //     })
-                // })                
+                this.audios = response.data.filter(element => !element.Key.match(/\/$/))
+                this.audios.forEach(audio => {
+                    let audioElement = new Audio(this.awsUrl + audio.Key)
+                    audioElement.controls = true
+                    this.$refs['audios'].appendChild(audioElement)
+                })
             } catch(err) {
                 console.log(err)
             }
-        },
-        audioPath: function(name) {
-            return 'uploads/' + name
-        },
-        async remove(e) {
-            console.log(e)
-            // let response = await axios.delete(`/api/audios/${e.target.dataset['audio-id']}/delete`)
-            // console.log(response)
-            this.loadAudios()
         }
     },
 }

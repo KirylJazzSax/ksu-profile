@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --watch",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "start": "node server"
+    "start": "nodemon server"
   },
   "dependencies": {
+    "aws-sdk": "^2.706.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
@@ -24,6 +25,7 @@
     "vue-aplayer": "^1.6.1",
     "vue-i18n": "^8.17.3",
     "vue-loader": "^15.9.3",
+    "vue-loading-overlay": "^3.3.2",
     "vue-notification": "^1.3.20",
     "vue-router": "^3.2.0",
     "youtube-iframe": "^1.0.3"

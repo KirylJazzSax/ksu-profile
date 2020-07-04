@@ -1,44 +1,58 @@
 const express = require('express');
 const router = express.Router();
+const to = require('buffer-to-uint8array')
 const multer = require('multer');
+const S3S = require('s3-streams');
 const fs = require('fs');
 const Repository = require('../components/InFileRepository');
+const AWS = require('aws-sdk');
+const s3 = new AWS.S3({
+    accessKeyId: 'AKIAJTD6OC4XXQUIPFEA',
+    secretAccessKey: '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'
+});
+const awsS3 = AWS.S3;
+let youtubeRepository = new Repository(fs, 'server/db/youtube.json');
 
-let youtubeReposiroty = new Repository(fs, 'server/db/youtube.json');
-let audioReposiroty = new Repository(fs, 'server/db/audio.json'); 
+let upload = multer();
 
-let storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './dist/uploads');
-    },
-    filename: (req, file, cb) => {
-        let name = 'audio_' + Date.now() + '.mp3'; 
-        let data = {
-            audioName: file.originalname,
-            audioNameGenerated: name,
-            artist: req.body.artist,
-            title: req.body.title
+router.get('/audios', (req, res) => {
+    let params = {
+        Bucket: 'ksu-profile',
+    }
+
+    s3.listObjects(params, (err, data) => {
+        if (err) {
+            console.log(err)
+            res.setStatus(500)
+            res.json({message: 'I guess something wrong with server'})
         }
 
-        audioReposiroty.save(data)
-        cb(null, name)
-    }
-});
-
-let upload = multer({
-    storage: storage
-});
-
-router.get('/audios', upload.single('audio'), (req, res) => {
-    res.json(audioReposiroty.getData());
+        res.json(data.Contents)
+    })
 });
 
 router.post('/upload', upload.single('audio'), (req, res) => {
-    res.json({message: 'File uploaded!'});
+    let key = Date.now()
+    let params = {
+        Bucket: 'ksu-profile',
+        Key: key,
+        Body: req.file.buffer,
+        ACL:'public-read'
+    }
+    s3.upload(params, (err, data) => {
+        if (err) {
+            console.log(err)
+            res.setStatus(500)
+            res.json({message: 'File was not uploaded for some reason'})
+            return
+        }
+
+        res.json({message: 'File uploaded!'});
+    })
 });
 
 router.get('/youtube', (req, res) => {
-    res.json(youtubeReposiroty.getData());
+    res.json(youtubeRepository.getData());
 });
 
 router.post('/youtube', (req, res) => {
@@ -51,7 +65,7 @@ router.post('/youtube', (req, res) => {
         video: req.body.videoId,
     }
 
-    if (youtubeReposiroty.save(data)) {
+    if (youtubeRepository.save(data)) {
         return res.json({message: 'Link uploaded!'});
     }
 

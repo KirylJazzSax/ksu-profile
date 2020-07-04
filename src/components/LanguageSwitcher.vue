@@ -10,9 +10,9 @@ export default {
     data() {
         return {
             langs: {
-                ru: 'Русский',
-                en: 'English',
-                de: 'German' 
+                ru: 'RU',
+                en: 'EN',
+                de: 'DE'
             }
         }    
     },
