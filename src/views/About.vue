@@ -6,7 +6,7 @@
 </template>
 <style>
     .about-text {
-        background-color: rgba(99, 50, 62, 0.3);
+        background-color: rgba(99, 50, 62, 1);
         text-align: justify;
         width: 50%;
         z-index: 1;
@@ -17,11 +17,33 @@
         background-image: url("../assets/ksu-back.jpg");
         background-size: cover;
         background-position: -200px;
-
     }
     @media screen and (max-width: 992px) {
         .about-text {
             width: 100%;
+            background-color: rgba(99, 50, 62, 0.3);
+        }
+        .ksu-picture {
+            width: 100%;
+            height: 100%;
+            background-image: url("../assets/ksu-back.jpg");
+            background-size: contain;
+            background-position: center;
+        }
+    }
+    @media screen and (max-width: 576px) {
+        .about-text {
+            width: 100%;
+            background-color: rgba(99, 50, 62, 0.3);
+        }
+        .ksu-picture {
+            width: 100%;
+            height: 100%;
+            background-image: url("../assets/ksu-back-copy.jpg");
+            background-size: contain;
+            background-position: top;
+            background-repeat: no-repeat;
+            background-color: rgba(99, 50, 62, 0.7);
         }
     }
 </style>
