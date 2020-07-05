@@ -31,14 +31,8 @@
             background-position: top;
         }
     }
-    @media screen and (max-width: 576px) {
-        .about-text {
-            width: 100%;
-            background-color: rgba(99, 50, 62, 0.3);
-        }
+    @media screen and (max-width: 768px) {
         .ksu-picture {
-            width: 100%;
-            height: 100%;
             background-image: url("../assets/ksu-back-copy.jpg");
             background-size: contain;
             background-position: top;
