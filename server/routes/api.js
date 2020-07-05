@@ -4,11 +4,12 @@ const multer = require('multer');
 const fs = require('fs');
 const Repository = require('../components/InFileRepository');
 const AWS = require('aws-sdk');
+
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
-const awsS3 = AWS.S3;
+
 let youtubeRepository = new Repository(fs, 'server/db/youtube.json');
 
 let upload = multer();
@@ -30,7 +31,7 @@ router.get('/audios', (req, res) => {
 });
 
 router.post('/upload', upload.single('audio'), (req, res) => {
-    let key = Date.now()
+    let key = Date.now() + ''
     let params = {
         Bucket: 'ksu-profile',
         Key: key,
