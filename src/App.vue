@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div class="logo p-3">
+        <div class="logo p-3" ref="logo">
             <div class="name">Kseniya Kawko</div>
             <div class="description">Tonmeister / Recording Producer / 3D Audio Engineer</div>
         </div>
@@ -75,17 +75,17 @@
         text-align: center;
         color: #2c3e50;
     }
-
     .logo {
-        background-color: #f8f9fa;
+        /*background-color: #f8f9fa;*/
         font-family: raleway-semi-bold;
         border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+        /*background-color: #026670;*/
+        color: #fff;
+        background-color: rgba(99, 50, 62, 1);
     }
-
     .name {
         font-size: 1.5em;
     }
-
     .description {
         font-size: 1.1em;
     }

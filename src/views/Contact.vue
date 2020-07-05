@@ -10,7 +10,13 @@
 
 <script>
     export default {
-        name: "Contact"
+        name: "Contact",
+        mounted() {
+            this.$root.$children[0].$refs.logo.style.backgroundColor = '#026670'
+        },
+        destroyed() {
+            this.$root.$children[0].$refs.logo.style.backgroundColor = 'rgba(99, 50, 62, 1)'
+        }
     }
 </script>
 <style>
@@ -20,6 +26,7 @@
         height: calc(100vh - 151px);
         z-index: 1;
         margin-left: auto;
+        /*background-color: #026670;*/
     }
     .contact-text a {
         color: #fff;
@@ -31,10 +38,11 @@
         background-image: url("../assets/ksu-back.jpg");
         background-size: cover;
         position: absolute;
+        background-position: 47%;
     }
     @media screen and (max-width: 992px){
         .contact-ksu-picture {
-            background-position: -100px;
+            background-position: -47%;
         }
     }
     @media screen and (max-width: 768px) {
