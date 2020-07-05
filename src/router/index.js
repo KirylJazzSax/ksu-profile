@@ -21,11 +21,6 @@ const routes = [
         component: () => import('../views/Ksu.vue')
     },
     {
-        path: '/audios',
-        name: 'Audios',
-        component: () => import('../views/Audios.vue')
-    },
-    {
         path: '/contact',
         name: 'Contact',
         component: () => import('../views/Contact.vue')

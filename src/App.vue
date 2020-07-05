@@ -19,9 +19,6 @@
                         <router-link class-active="active" class="nav-link" to="/works">Works</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class-active="active" class="nav-link" to="/audios">Audios</router-link>
-                    </li>
-                    <li class="nav-item">
                         <router-link class-active="active" class="nav-link" to="/immersive">Immersive</router-link>
                     </li>
                     <li class="nav-item">
