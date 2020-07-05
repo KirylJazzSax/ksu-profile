@@ -28,7 +28,7 @@
             height: 100%;
             background-image: url("../assets/ksu-back.jpg");
             background-size: contain;
-            background-position: center;
+            background-position: top;
         }
     }
     @media screen and (max-width: 576px) {
