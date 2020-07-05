@@ -1,6 +1,7 @@
 <template>
-    <div class="about text-light p-5">
-        <div class="about-text p-5">{{ $t('about') }}</div>
+    <div class="about d-flex text-light position-relative">
+        <div class="ksu-picture position-absolute"></div>
+        <div class="about-text p-5 ml-auto">{{ $t('about') }}</div>
     </div>
 </template>
 <style>
@@ -8,6 +9,15 @@
         background-color: rgba(99, 50, 62, 0.3);
         text-align: justify;
         width: 50%;
+        z-index: 1;
+    }
+    .ksu-picture {
+        width: 50%;
+        height: 100%;
+        background-image: url("../assets/ksu-back.jpg");
+        background-size: cover;
+        background-position: -200px;
+
     }
     @media screen and (max-width: 992px) {
         .about-text {

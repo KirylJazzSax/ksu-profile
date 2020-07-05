@@ -19,7 +19,7 @@
             loadAudios: async function () {
                 try {
                     let response = await axios.get('/api/audios')
-                    this.audios = response.data.filter(element => !element.Key.match(/\/$/))
+                    this.audios = response.data.filter(element => !element.Key.match(/\.jpg$/) && !element.Key.match(/\/$/))
                     this.audios.forEach(audio => {
                         let audioElement = new Audio(this.awsUrl + audio.Key)
                         audioElement.controls = true

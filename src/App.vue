@@ -40,7 +40,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="container-fluid">
+        <div class="container-fluid p-0">
             <router-view/>
         </div>
     </div>
@@ -66,14 +66,6 @@
     @font-face {
         font-family: raleway-semi-bold;
         src: url('assets/raleway/Raleway-SemiBold.ttf');
-    }
-
-    body {
-        background: url('assets/ksu-back.jpg');
-        background-repeat: repeat-x;
-        background-position: 100% 0%;
-        background-attachment: fixed;
-        background-size: contain;
     }
 
     #app {
