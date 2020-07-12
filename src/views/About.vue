@@ -11,7 +11,8 @@
         width: 50%;
         z-index: 1;
         margin-left: auto;
-        background-color: #026670;
+        /* background-color: #026670; */
+        background: linear-gradient(0deg, rgba(185,196,195,1) 21%, rgba(18,130,119,1) 100%);
     }
     .ksu-picture {
         width: 50%;
@@ -24,7 +25,7 @@
     @media screen and (max-width: 992px) {
         .about-text {
             width: 100%;
-            background-color: rgba(99, 50, 62, 1);
+            /* background-color: rgba(99, 50, 62, 1); */
             margin-left: 0;
         }
         .ksu-picture {

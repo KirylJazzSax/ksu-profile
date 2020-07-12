@@ -12,20 +12,21 @@
     export default {
         name: "Contact",
         mounted() {
-            this.$root.$children[0].$refs.logo.style.backgroundColor = '#026670'
+            // this.$root.$children[0].$refs.logo.style.backgroundColor = '#026670'
         },
         destroyed() {
-            this.$root.$children[0].$refs.logo.style.backgroundColor = 'rgba(99, 50, 62, 1)'
+            // this.$root.$children[0].$refs.logo.style.backgroundColor = 'rgba(99, 50, 62, 1)'
         }
     }
 </script>
 <style>
     .contact-text {
-        background-color: rgba(99, 50, 62, 1);
+        /* background-color: rgba(99, 50, 62, 1); */
         width: 50%;
         height: calc(100vh - 151px);
         z-index: 1;
         margin-left: auto;
+        background: linear-gradient(0deg, rgba(185,196,195,1) 21%, rgba(18,130,119,1) 100%);
         /*background-color: #026670;*/
     }
     .contact-text a {
@@ -47,7 +48,7 @@
     }
     @media screen and (max-width: 768px) {
         .contact-text {
-            background-color: rgba(99, 50, 62, 1);
+            /* background-color: rgba(99, 50, 62, 1); */
             width: 100%;
             height: 150px;
             margin-left: 0;
