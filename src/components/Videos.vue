@@ -1,6 +1,10 @@
 <template>
-    <div>
-        <div class="w-100 mt-2 mb-2" :id="key" v-for="(video, key) in videos" :key="key"></div>
+    <div class="d-flex flex-column p-3">
+        <div class="video" v-for="(video, index) in videos" :key="index">
+            <div class="lead mb-3">{{ video.title }}</div>
+            <video :src="video.video" controls></video>
+            <div>{{ video.description }}</div>
+        </div>  
     </div>
 </template>
 
@@ -14,8 +18,13 @@
                 videos: null
             }
         },
-        mounted() {
-            this.renderVideos()
+        async mounted() {
+            try {
+                let response = await axios.get('/api/youtube')
+                this.videos = response.data.videos
+            } catch (err) {
+                console.log(err)
+            }
         },
         methods: {
             renderVideos: async function () {
@@ -36,7 +45,7 @@
             loadVideos: async function () {
                 try {
                     let response = await axios.get('/api/youtube')
-                    this.videos = response.data
+                    this.videos = response.data.videos
                 } catch (err) {
                     console.log(err)
                 }
@@ -44,3 +53,13 @@
         }
     }
 </script>
+<style>
+    video {
+        max-width: 70%;
+    }
+    .video {
+        display: grid;
+        justify-items: center;
+        row-gap: 10px;
+    }
+</style>

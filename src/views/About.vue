@@ -1,5 +1,5 @@
 <template>
-    <div class="about d-flex flex-column text-light position-relative">
+    <div class="about d-flex flex-column text-dark position-relative">
         <div class="ksu-picture"></div>
         <div class="about-text p-5">{{ $t('about') }}</div>
     </div>
@@ -11,7 +11,8 @@
         width: 50%;
         z-index: 1;
         margin-left: auto;
-        background-color: #026670;
+        /* background-color: #026670; */
+        background: linear-gradient(0deg, rgba(241,241,242,1) 100%, rgba(183,228,247,1) 100%);
     }
     .ksu-picture {
         width: 50%;
@@ -24,7 +25,7 @@
     @media screen and (max-width: 992px) {
         .about-text {
             width: 100%;
-            background-color: rgba(99, 50, 62, 1);
+            /* background-color: rgba(99, 50, 62, 1); */
             margin-left: 0;
         }
         .ksu-picture {

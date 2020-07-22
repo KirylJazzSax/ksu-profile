@@ -81,7 +81,8 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.7);
         /*background-color: #026670;*/
         color: #fff;
-        background-color: rgba(99, 50, 62, 1);
+        /* background-color: rgba(99, 50, 62, 1); */
+        background: linear-gradient(0deg, rgba(142,188,208,1) 100%, rgba(183,228,247,1) 100%);
     }
     .name {
         font-size: 1.5em;

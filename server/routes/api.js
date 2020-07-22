@@ -1,75 +1,90 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
 const fs = require('fs');
-const Repository = require('../components/InFileRepository');
-const AWS = require('aws-sdk');
-
-const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
-
-let youtubeRepository = new Repository(fs, 'server/db/youtube.json');
-
-let upload = multer();
+const audioPath = 'dist/audio';
+const videoPath = 'dist/video';
 
 router.get('/audios', (req, res) => {
-    let params = {
-        Bucket: 'ksu-profile',
-    }
+    let audios = [];
+    let audioPattern = /(\.mp3|\.wav)$/;
 
-    s3.listObjects(params, (err, data) => {
-        if (err) {
-            console.log(err)
-            res.setStatus = 500
-            res.json({message: 'I guess something wrong with server'})
+    fs.readdir(audioPath, (err, files) => {
+        if (!files) {
+            return;
         }
+        files.forEach(file => {
+            if (file.match(audioPattern)) {
+                let audio = {audio: 'audio/' + file};
 
-        res.json(data.Contents)
-    })
+                let n = file.indexOf('.');
+                let name = file.substring(0, n);
+                let titlePath = audioPath + `/${name}-title.txt`;
+                let descriptionPath = audioPath + `/${name}-description.txt`;
+                let imagePath = audioPath + `/${name}.jpg`;
+
+                if (fs.existsSync(titlePath)) {
+                    audio.title = fs.readFileSync(titlePath, 'utf-8');
+                } 
+                
+                if (fs.existsSync(descriptionPath)) {
+                    audio.description = fs.readFileSync(descriptionPath, 'utf-8');
+                }
+
+                if (fs.existsSync(imagePath)) {
+                    audio.image = 'audio/' + name + '.jpg';
+                }
+
+                audios.push(audio);
+            }
+        });
+
+        res.json({audios: audios})    
+    });
 });
 
-router.post('/upload', upload.single('audio'), (req, res) => {
-    let key = Date.now() + ''
-    let params = {
-        Bucket: 'ksu-profile',
-        Key: key,
-        Body: req.file.buffer,
-        ACL:'public-read'
-    }
-    s3.upload(params, (err, data) => {
-        if (err) {
-            console.log(err)
-            res.setStatus = 500
-            res.json({message: 'File was not uploaded for some reason'})
-            return
-        }
-
-        res.json({message: 'File uploaded!'});
-    })
+router.post('/upload', (req, res) => {
+    
 });
 
 router.get('/youtube', (req, res) => {
-    res.json(youtubeRepository.getData());
+    let videos = [];
+    let videoPattern = /(\.wmv|\.mp4)$/;
+
+    fs.readdir(videoPath, (err, files) => {
+        if (!files) {
+            return;
+        }
+        files.forEach(file => {
+            if (file.match(videoPattern)) {
+                let video = {video: 'video/' + file};
+
+                let n = file.indexOf('.');
+                let name = file.substring(0, n);
+                let titlePath = videoPath + `/${name}-title.txt`;
+                let descriptionPath = videoPath + `/${name}-description.txt`;
+                // let imagePath = videoPath + `/${name}.jpg`;
+
+                if (fs.existsSync(titlePath)) {
+                    video.title = fs.readFileSync(titlePath, 'utf-8');
+                } 
+                
+                if (fs.existsSync(descriptionPath)) {
+                    video.description = fs.readFileSync(descriptionPath, 'utf-8');
+                }
+
+                // if (fs.existsSync(imagePath)) {
+                //     audio.image = 'audio/' + name + '.jpg';
+                // }
+                
+                videos.push(video);
+            }
+        });
+        res.json({videos: videos})   
+    });
 });
 
 router.post('/youtube', (req, res) => {
-    if (!req.body.videoId) {
-        res.setStatus = 400;
-        return res.json({message: 'We need youtube video id'});
-    }
-
-    let data = {
-        video: req.body.videoId,
-    }
-
-    if (youtubeRepository.save(data)) {
-        return res.json({message: 'Link uploaded!'});
-    }
-
-    res.setStatus = 500;
-    return res.json({message: 'Something wrong'});
+    
 });
 
 module.exports = router;

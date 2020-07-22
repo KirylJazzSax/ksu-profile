@@ -1,15 +1,20 @@
 <template>
-    <div ref="audios" class="d-flex flex-column"></div>
+    <div ref="audios" class="d-flex flex-column p-3">
+        <Audio :key="index" v-for="(audio, index) in audios" :audio="audio" />
+    </div>
 </template>
 <script>
     import axios from 'axios'
+    import Audio from './Audio'
 
     export default {
         name: 'Audios',
+        components: {
+            Audio
+        },
         data () {
             return {
                 audios: null,
-                awsUrl: 'https://ksu-profile.s3.eu-central-1.amazonaws.com/'
             }
         },
         mounted() {
@@ -19,12 +24,14 @@
             loadAudios: async function () {
                 try {
                     let response = await axios.get('/api/audios')
-                    this.audios = response.data.filter(element => !element.Key.match(/\.jpg$/) && !element.Key.match(/\/$/))
-                    this.audios.forEach(audio => {
-                        let audioElement = new Audio(this.awsUrl + audio.Key)
-                        audioElement.controls = true
-                        this.$refs['audios'].appendChild(audioElement)
-                    })
+                    this.audios = response.data.audios
+                    // console.log(this.audios)    
+                    // this.audios.forEach(audio => {
+                    //     let newAudio = document.createE
+                    //     let audioElement = new Audio(this.awsUrl + audio.Key)
+                    //     audioElement.controls = true
+                    //     this.$refs['audios'].appendChild(audioElement)
+                    // })
                 } catch(err) {
                     console.log(err)
                 }
@@ -32,8 +39,3 @@
         },
     }
 </script>
-<style>
-    audio {
-        margin: 0.5em;
-    }
-</style>
