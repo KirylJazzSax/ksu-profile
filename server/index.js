@@ -11,5 +11,5 @@ app.use (fileUpload())
 app.use (fallback ('index.html', { root: 'dist' }));
 
 app.listen (process.env.PORT || 3000, () => {
-    console.log ('should work ' + process.env.PORT);
+    console.log ('should work');
 })
