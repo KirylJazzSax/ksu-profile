@@ -6,13 +6,12 @@
 </template>
 <style>
     .about-text {
-        /*background-color: rgba(99, 50, 62, 1);*/
+        background-color: rgba(99, 50, 62, 1);
         text-align: justify;
         width: 50%;
         z-index: 1;
         margin-left: auto;
-        /* background-color: #026670; */
-        background: linear-gradient(0deg, rgba(241,241,242,1) 100%, rgba(183,228,247,1) 100%);
+        color: white;
     }
     .ksu-picture {
         width: 50%;
@@ -25,7 +24,6 @@
     @media screen and (max-width: 992px) {
         .about-text {
             width: 100%;
-            /* background-color: rgba(99, 50, 62, 1); */
             margin-left: 0;
         }
         .ksu-picture {

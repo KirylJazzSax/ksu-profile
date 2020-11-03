@@ -34,7 +34,7 @@
         mounted() {
             this.images = [{
                 'name': 'ksu-back.jpg',
-                'alt': 'The Dolomites',
+                'alt': '',
                 'filter': 'nature',
                 'id': 'image1'
             },]

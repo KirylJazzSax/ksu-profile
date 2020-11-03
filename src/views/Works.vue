@@ -24,15 +24,28 @@
     .works {
         display: flex;
         flex-wrap: wrap;
-        /* justify-content: space-between; */
         background: linear-gradient(0deg, rgba(241,241,242,1) 100%, rgba(183,228,247,1) 100%);
     }
     .work {
-        width: 50%;
+        width: 100%;
+    }
+    .display-tablet {
+        display: none;
+    }
+    .display-deckstop {
+        display: block;
     }
     @media screen and (max-width: 1200px) {
         .work {
             width: 100%;
         }
+    }
+    @media screen and (max-width: 768px) {
+        .display-tablet {
+            display: block;
+        }
+        .display-deckstop {
+            display: none;
+        } 
     }
 </style>
