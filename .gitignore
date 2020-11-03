@@ -20,3 +20,8 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+/src/assets
+/public/audio
+/public/img
+/public/video
