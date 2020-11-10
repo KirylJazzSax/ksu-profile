@@ -1,16 +1,22 @@
 <template>
-    <div class="d-flex flex-column p-3">
+    <div class="videos d-flex p-3">
         <div class="video-container" v-for="(video, index) in videos" :key="index">
-            <div class="video">
-                <div class="lead mb-3 display-tablet">{{ video.title }}</div>
-                <video :src="video.video" controls></video>
-                <div class="display-tablet">{{ video.description }}</div>
-            </div>
-            <div class="video-description">
-                <div class="lead mb-3 display-deckstop">{{ video.title }}</div>
-                <div class="display-deckstop">{{ video.description }}</div>
-            </div>
-            
+            <div class="lead mb-3">{{ video.title }}</div>
+            <vue-plyr>
+                <!-- <video
+                    controls
+                    crossorigin
+                    playsinline
+                >
+                    <source
+                    size="720"
+                    :src="video.video"
+                    type="video/mp4"
+                    />
+                </video> -->
+                <div data-plyr-provider="youtube" data-plyr-embed-id="RGFgQLn74Ls"></div>
+            </vue-plyr>
+            <div class="video-description">{{ video.description }}</div>
         </div>  
     </div>
 </template>
@@ -24,6 +30,11 @@
                         title: 'My video',
                         description: 'Amaizing description',
                         video: 'video/with_subtitles.mp4'
+                    },
+                    {
+                        title: 'My video',
+                        description: 'Amaizing description',
+                        video: 'video/with_subtitles.mp4'
                     }
                 ]
             }
@@ -31,27 +42,33 @@
     }
 </script>
 <style>
-    video {
-        max-width: 70%;
-    }
     .video-container {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        justify-items: center;
+        width: 45%;
     }
     .video-description {
-        display: grid;
         align-content: center;
-        width: 50%;
+        margin-top: 20px;
     }
-    .video {
-        width: 50%;
+    video {
+        width: 80%;
+    }
+    .plyr--video {
+        width: 80%;
+    }
+    .videos {
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
     @media screen and (max-width: 768px) {
-        .video-description {
-            width: 100%;
+        .video-container {
+            width: 80%;
+            margin-bottom: 20px;
         }
-        .video {
-            width: 100%;
+        .videos {
+            flex-wrap: wrap;
+            justify-content: center;
         }
     }
 </style>

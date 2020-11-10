@@ -22,6 +22,6 @@ pnpm-debug.log*
 *.sw?
 
 /src/assets
-/public/audio
-/public/img
+#/public/audio
+#/public/img
 /public/video

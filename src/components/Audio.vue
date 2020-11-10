@@ -1,22 +1,54 @@
 <template>
     <div class="audio-container">
-        <div class="audio-description">
-            <div class="lead mb-3 display-tablet">{{ audio.title }}</div>
-            <div class="mb-3 image"><img :src="audio.image" class="img-fluid" alt="album-image"></div>
-            <div class="display-tablet">{{ audio.description }}</div>
+        <!-- <div class="lead mb-3 display-deckstop">{{ audio.title }}</div> -->
+        <div :class="{'mb-3': true, 'image': true}">
+            <img :src="audio.image" 
+                @click="showLightbox(audio.image)" 
+                class="img-fluid">
         </div>
-        <div class="audio">
-            <div class="lead mb-3 display-deckstop">{{ audio.title }}</div>
-            <div class="display-deckstop">{{ audio.description }}</div>
-            <audio :src="audio.audio" controls></audio>
-        </div>
+        <vue-plyr>
+        <audio controls crossorigin playsinline>
+            <source
+                :src="audio.audio"
+                type="audio/wav"
+            />
+        </audio>
+        </vue-plyr>
+        <lightbox
+                ref="lightbox"
+                :images="images"
+                :directory="''"
+                :timeoutDuration="5000" />
     </div>
 </template>
 <script>
+import Lightbox from 'vue-my-photos'
+
 export default {
     name: 'Audio',
+    components: {
+        Lightbox
+    },
+    data() {
+        return {
+            images: []
+        }
+    },
     props: {
-        audio: Object,
+        audio: Object
+    },
+    mounted() {
+        this.images.push({
+            'name': this.audio.image,
+            'alt': '',
+            'filter': 'nature',
+            'id': 'album-image'
+        })
+    },
+    methods: {
+        showLightbox: function (imageName) {
+            this.$refs.lightbox.show(imageName);
+        },
     },
 }
 </script>
@@ -25,8 +57,8 @@ export default {
         display: flex;
         flex-wrap: wrap;
         row-gap: 10px;
-        justify-items: center;
-        width: 100%;
+        width: 23%;
+        justify-content: center;
     }
     .audio {
         display: grid;
@@ -38,18 +70,49 @@ export default {
         display: grid;
         width: 50%;
     }
+    .image {
+        display: grid;
+        justify-items: center;
+        align-items: flex-end;
+        z-index: 1;
+    }
     .image img {
         max-width: 70%;
+        margin-top: 20px;
+    }
+    .image img:hover {
+        cursor: pointer;
     }
     audio {
         outline: none;
     }
-    @media screen and (max-width: 768px) {
-        .audio-description {
-            width: 100%;
+    @media screen and (max-width: 1100px) {
+        .audio-container {
+            width: 45%;
         }
-        .audio {
-            width: 100%;
+
+        .image img {
+            max-width: 44%;
+        }
+    }
+    @media screen and (max-width: 894px) {
+        .image img {
+            max-width: 52%;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .image img {
+            max-width: 62%;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .audio-container {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .image img {
+            margin-top: 0;
+            max-width: 47%;
         }
     }
 </style>

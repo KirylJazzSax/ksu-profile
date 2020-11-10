@@ -5,43 +5,45 @@
             <div class="description">Tonmeister / Recording Producer / 3D Audio Engineer</div>
         </div>
         <notifications group="media" position="bottom right"/>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav w-100 justify-content-around">
-                    <li class="nav-item">
-                        <router-link class-active="active" class="nav-link" to="/">About</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class-active="active" class="nav-link" to="/works">Works</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class-active="active" class="nav-link" to="/immersive">Immersive</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class-active="active" class="nav-link" to="/photos">Photos</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class-active="active" class="nav-link" to="/awards">Awards</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class-active="active" class="nav-link" to="/contact">Contact</router-link>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Language
-                        </a>
-                        <LanguageSwitcher/>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div class="navbar-container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav w-100 justify-content-around">
+                        <li class="nav-item">
+                            <router-link class-active="active" class="nav-link" to="/">About</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link class-active="active" class="nav-link" to="/works">Works</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link class-active="active" class="nav-link" to="/immersive">Immersive</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link class-active="active" class="nav-link" to="/photos">Photos</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link class-active="active" class="nav-link" to="/awards">Awards</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link class-active="active" class="nav-link" to="/contact">Contact</router-link>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Language
+                            </a>
+                            <LanguageSwitcher/>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         <div class="container-fluid p-0">
-            <router-view/>
+            <router-view class="router-view" />
         </div>
     </div>
 </template>
@@ -87,5 +89,19 @@
     .description {
         font-size: 1.1em;
     }
-
+    .navbar-container {
+        width: 100%;
+        background-color: #f8f9fa;
+    }
+    .navbar-container nav {
+        max-width: 1400px;
+        margin: auto;
+    }
+    .container-fluid {
+        background-color: #f8f9fa;
+    }
+    .container-fluid .router-view {
+        max-width: 1400px;
+        margin: auto;
+    }
 </style>
