@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <nprogress-container></nprogress-container>
         <div class="logo p-3" ref="logo">
             <div class="name">Kseniya Kawko</div>
             <div class="description">Tonmeister / Recording Producer / 3D Audio Engineer</div>
@@ -50,10 +51,12 @@
 
 <script>
     import LanguageSwitcher from './components/LanguageSwitcher.vue'
+    import NprogressContainer from 'vue-nprogress/src/NprogressContainer'
 
     export default {
         components: {
             LanguageSwitcher,
+            NprogressContainer
         },
     }
 </script>
@@ -103,5 +106,6 @@
     .container-fluid .router-view {
         max-width: 1400px;
         margin: auto;
+        max-height: 1050px;
     }
 </style>

@@ -7,15 +7,20 @@ import i18n from './i18n'
 import Notifications from 'vue-notification'
 import VuePlyr from 'vue-plyr'
 import 'vue-plyr/dist/vue-plyr.css'
+import NProgress from 'vue-nprogress'
+
+const nprogress = new NProgress()
 
 Vue.config.productionTip = false
 Vue.use(Notifications)
 Vue.use(VuePlyr, {
   plyr: {}
 })
+Vue.use(NProgress)
 
 new Vue({
   router,
   i18n,
+  nprogress,  
   render: h => h(App)
 }).$mount('#app')

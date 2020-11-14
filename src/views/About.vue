@@ -1,14 +1,36 @@
 <template>
     <div class="about d-flex flex-column text-dark position-relative">
         <div class="ksu-picture"></div>
-        <div class="about-text p-5">{{ $t('about') }}</div>
+        <vue-custom-scrollbar class="about-text p-5" :settings="settings">
+            {{ $t('about') }}
+        </vue-custom-scrollbar>
     </div>
 </template>
+<script>
+import vueCustomScrollbar from 'vue-custom-scrollbar'
+import "vue-custom-scrollbar/dist/vueScrollbar.css"
+
+export default {
+    components: {
+        vueCustomScrollbar
+    },
+    data() {
+        return {
+            settings: {
+                suppressScrollY: false,
+                suppressScrollX: false,
+                wheelPropagation: false
+            }
+        }
+    }
+}
+</script>  
 <style>
     .about-text {
         background-color: rgba(99, 50, 62, 1);
         text-align: justify;
         width: 50%;
+        height: calc(100vh - 151px);
         z-index: 1;
         margin-left: auto;
         color: white;
@@ -20,6 +42,26 @@
         background-size: cover;
         background-position: 47%;
         position: absolute;
+    }
+    @media screen and (min-height: 800px) {
+        .about-text {
+            font-size: 17px;
+        }
+    }
+    @media screen and (min-height: 900px) {
+        .about-text {
+            font-size: 18px;
+        }
+    }
+    @media screen and (min-height: 950px) {
+        .about-text {
+            font-size: 19px;
+        }
+    }
+    @media screen and (min-height: 1050px) {
+        .about-text {
+            font-size: 20px;
+        }
     }
     @media screen and (max-width: 992px) {
         .about-text {
@@ -40,6 +82,9 @@
             height: 349px;
             background-size: contain;
             background-position: top;
+        }
+        .about-text {
+            height: auto;
         }
     }
     @media screen and (max-width: 528px) {
