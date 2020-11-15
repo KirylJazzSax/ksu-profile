@@ -1,6 +1,9 @@
 <template>
     <div class="about d-flex flex-column text-dark position-relative">
-        <div class="ksu-picture"></div>
+        <div class="ksu-picture">
+            <circle10 v-show="imageLoading"></circle10>
+            <img class="image-hidden" src="../assets/ksu-back.jpg" alt="">
+        </div>
         <vue-custom-scrollbar class="about-text p-5" :settings="settings">
             {{ $t('about') }}
         </vue-custom-scrollbar>
@@ -9,10 +12,12 @@
 <script>
 import vueCustomScrollbar from 'vue-custom-scrollbar'
 import "vue-custom-scrollbar/dist/vueScrollbar.css"
+import Circle10 from 'vue-loading-spinner/src/components/Circle10'
 
 export default {
     components: {
-        vueCustomScrollbar
+        vueCustomScrollbar,
+        Circle10
     },
     data() {
         return {
@@ -20,8 +25,17 @@ export default {
                 suppressScrollY: false,
                 suppressScrollX: false,
                 wheelPropagation: false
-            }
+            },
+            imageLoading: true
         }
+    },
+    mounted() {
+        const ksuPickContainer = this.$el.querySelector('.ksu-picture')
+        const ksuPick = this.$el.querySelector('.image-hidden')
+        ksuPick.onload = () => {
+            ksuPickContainer.style.backgroundImage = `url('${ksuPick.src}')`
+            this.imageLoading = false
+        }   
     }
 }
 </script>  
@@ -38,10 +52,17 @@ export default {
     .ksu-picture {
         width: 50%;
         height: 100%;
-        background-image: url("../assets/ksu-back.jpg");
+        /* background-image: url("../assets/ksu-back.jpg"); */
         background-size: cover;
         background-position: 47%;
         position: absolute;
+        display: flex;
+    }
+    .image-hidden {
+        display: none;
+    }
+    .spinner.spinner--circle-10 {
+        margin: auto;
     }
     @media screen and (min-height: 800px) {
         .about-text {

@@ -2,17 +2,18 @@
     <div class="audio-container">
         <!-- <div class="lead mb-3 display-deckstop">{{ audio.title }}</div> -->
         <div :class="{'mb-3': true, 'image': true}">
-            <img :src="audio.image" 
+            <circle10 v-show="isLoading"></circle10>
+            <img v-show="!isLoading" :src="audio.image" 
                 @click="showLightbox(audio.image)" 
                 class="img-fluid">
         </div>
         <vue-plyr>
-        <audio controls crossorigin playsinline>
-            <source
-                :src="audio.audio"
-                type="audio/wav"
-            />
-        </audio>
+            <audio controls crossorigin playsinline>
+                <source
+                    :src="audio.audio"
+                    type="audio/wav"
+                />
+            </audio>
         </vue-plyr>
         <lightbox
                 ref="lightbox"
@@ -23,15 +24,18 @@
 </template>
 <script>
 import Lightbox from 'vue-my-photos'
+import Circle10 from 'vue-loading-spinner/src/components/Circle10'
 
 export default {
     name: 'Audio',
     components: {
-        Lightbox
+        Lightbox,
+        Circle10
     },
     data() {
         return {
-            images: []
+            images: [],
+            isLoading: true
         }
     },
     props: {
@@ -44,6 +48,10 @@ export default {
             'filter': 'nature',
             'id': 'album-image'
         })
+        const img = this.$el.querySelector('img')
+        img.onload = () => {
+            this.isLoading = false
+        }
     },
     methods: {
         showLightbox: function (imageName) {
@@ -53,6 +61,9 @@ export default {
 }
 </script>
 <style>
+    .spinner.spinner--circle-10 {
+        align-self: center;
+    }
     .audio-container {
         display: flex;
         flex-wrap: wrap;
@@ -75,6 +86,7 @@ export default {
         justify-items: center;
         align-items: flex-end;
         z-index: 1;
+        height: 220px;
     }
     .image img {
         max-width: 70%;
