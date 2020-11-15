@@ -17,6 +17,9 @@
         components: {
             Audios,
             Videos
+        },
+        mounted() {
+            this.$el.style.maxHeight = 'fit-content'
         }
     }
 </script>
