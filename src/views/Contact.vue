@@ -52,6 +52,7 @@
         height: calc(100vh - 151px);
         z-index: 1;
         margin-left: auto;
+        min-height: 150px;
     }
     .contact-text a {
         color: white;
@@ -95,7 +96,6 @@
         .contact-ksu-picture {
             /* height: calc(100vh - 151px); */
             background-position: top;
-            background-repeat: no-repeat;
             background-size: contain;
             width: 100%;
             position: unset;
