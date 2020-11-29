@@ -2,7 +2,7 @@
     <div class="audio-container">
         <!-- <div class="lead mb-3 display-deckstop">{{ audio.title }}</div> -->
         <div :class="{'mb-3': true, 'image': true}">
-            <circle10 v-show="isLoading"></circle10>
+            <plane v-show="isLoading"></plane>
             <img v-show="!isLoading" :src="audio.image" 
                 @click="showLightbox(audio.image)" 
                 class="img-fluid">
@@ -24,13 +24,13 @@
 </template>
 <script>
 import Lightbox from 'vue-my-photos'
-import Circle10 from 'vue-loading-spinner/src/components/Circle10'
+import Plane from 'vue-loading-spinner/src/components/Plane'
 
 export default {
     name: 'Audio',
     components: {
         Lightbox,
-        Circle10
+        Plane
     },
     data() {
         return {

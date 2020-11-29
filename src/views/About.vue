@@ -1,7 +1,7 @@
 <template>
     <div class="about d-flex flex-column text-dark position-relative">
         <div class="ksu-picture">
-            <circle10 v-show="imageLoading"></circle10>
+            <plane v-show="imageLoading"></plane>
             <img class="image-hidden" src="../assets/ksu-back.jpg" alt="">
         </div>
         <vue-custom-scrollbar class="about-text p-5" :settings="settings">
@@ -12,13 +12,14 @@
 <script>
 import vueCustomScrollbar from 'vue-custom-scrollbar'
 import "vue-custom-scrollbar/dist/vueScrollbar.css"
-import Circle10 from 'vue-loading-spinner/src/components/Circle10'
+import Plane from 'vue-loading-spinner/src/components/Plane'
 
 export default {
     components: {
         vueCustomScrollbar,
-        Circle10
+        Plane
     },
+ 
     data() {
         return {
             settings: {
@@ -26,11 +27,19 @@ export default {
                 suppressScrollX: false,
                 wheelPropagation: false
             },
-            imageLoading: true
+            imageLoading: true,
+            percentage: 0,
+            breakPoint: 992
         }
     },
     mounted() {
+        this.percentage = ((5848 - 3898) / 5848) * 100
         const ksuPickContainer = this.$el.querySelector('.ksu-picture')
+        const windowWidth = window.innerWidth
+        if (windowWidth <= this.breakPoint) {
+                const calculatedHeight = Math.floor(windowWidth - (windowWidth * (this.percentage / 100)))
+            ksuPickContainer.style.height = calculatedHeight + 'px'
+        }
         const ksuPick = this.$el.querySelector('.image-hidden')
         ksuPick.onload = () => {
             ksuPickContainer.style.backgroundImage = `url('${ksuPick.src}')`
@@ -61,8 +70,17 @@ export default {
     .image-hidden {
         display: none;
     }
-    .spinner.spinner--circle-10 {
+    .spinner.spinner--plane {
         margin: auto;
+    }
+    #top .plane {
+        background: rgba(99, 50, 62, 1);
+    }
+    #middle .plane {
+        background: rgb(49, 25, 31) !important;
+    }
+    #bottom .plane {
+        background: rgba(99, 50, 62, 1);
     }
     @media screen and (min-height: 800px) {
         .about-text {
@@ -91,7 +109,6 @@ export default {
         }
         .ksu-picture {
             width: 100%;
-            height: 500px;
             background-image: url("../assets/ksu-back.jpg");
             background-size: contain;
             background-position: top;
@@ -100,15 +117,14 @@ export default {
     }
     @media screen and (max-width: 768px) {
         .ksu-picture {
-            height: 349px;
             background-size: contain;
             background-position: top;
         }
         .about-text {
-            height: auto;
+            height: 600px;
         }
     }
-    @media screen and (max-width: 528px) {
+    /* @media screen and (max-width: 528px) {
         .ksu-picture {
             height: 266px;
         }
@@ -117,5 +133,5 @@ export default {
         .ksu-picture {
             height: 212px;
         }
-    }
+    } */
 </style>
