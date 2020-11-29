@@ -109,7 +109,6 @@ export default {
         }
         .ksu-picture {
             width: 100%;
-            background-image: url("../assets/ksu-back.jpg");
             background-size: contain;
             background-position: top;
             position: unset;
