@@ -61,7 +61,7 @@ export default {
 }
 </script>
 <style>
-    .spinner.spinner--circle-10 {
+    .spinner.spinner--plane {
         align-self: center;
     }
     .audio-container {
@@ -119,12 +119,12 @@ export default {
     }
     @media screen and (max-width: 600px) {
         .audio-container {
-            width: 80%;
+            width: 90%;
             margin-bottom: 20px;
         }
         .image img {
             margin-top: 0;
-            max-width: 47%;
+            max-width: 80%;
         }
     }
 </style>
