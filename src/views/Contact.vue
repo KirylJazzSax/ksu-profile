@@ -33,6 +33,9 @@
             if (windowWidth <= this.breakPoint) {
                 const calculatedHeight = Math.floor(windowWidth - (windowWidth * (this.percentage / 100)))
                 ksuPickContainer.style.height = calculatedHeight + 'px'
+                const ksuContactText = this.$el.querySelector('.contact-text')
+                const ksuContactTextHeight = 151 + calculatedHeight
+                ksuContactText.style.height = `calc(100vh - ${ksuContactTextHeight}px)`
             }
             const ksuPick = this.$el.querySelector('.image-hidden')
             ksuPick.onload = () => {
@@ -87,7 +90,6 @@
     @media screen and (max-width: 768px) {
         .contact-text {
             width: 100%;
-            height: 150px;
             margin-left: 0;
         }
         .contact-ksu-picture {
@@ -100,9 +102,6 @@
         }
     }
     @media screen and (max-width: 528px) {
-        .contact-ksu-picture {
-            height: 328px;
-        }
         .contact-text a {
             font-size: 1em;
         }
