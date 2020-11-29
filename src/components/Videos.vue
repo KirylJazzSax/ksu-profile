@@ -52,10 +52,10 @@
         margin-top: 20px;
     }
     video {
-        width: 80%;
+        width: 100%;
     }
     .plyr--video {
-        width: 80%;
+        width: 100%;
     }
     .videos {
         flex-wrap: wrap;
@@ -63,7 +63,7 @@
     }
     @media screen and (max-width: 768px) {
         .video-container {
-            width: 80%;
+            width: 100%;
             margin-bottom: 20px;
         }
         .videos {
