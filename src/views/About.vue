@@ -2,7 +2,7 @@
     <div class="about d-flex flex-column text-dark position-relative">
         <div class="ksu-picture">
             <plane v-show="imageLoading"></plane>
-            <img class="image-hidden" src="../assets/ksu-back.jpg" alt="">
+            <img class="image-hidden" src="../assets/ksu-back-another.jpg" alt="">
         </div>
         <vue-custom-scrollbar class="about-text p-5" :settings="settings">
             {{ $t('about') }}
@@ -33,11 +33,12 @@ export default {
         }
     },
     mounted() {
-        this.percentage = ((5848 - 3898) / 5848) * 100
+        // this.percentage = ((5848 - 3898) / 5848) * 100
+        this.percentage = ((6000 - 4000) / 6000) * 100
         const ksuPickContainer = this.$el.querySelector('.ksu-picture')
         const windowWidth = window.innerWidth
         if (windowWidth <= this.breakPoint) {
-                const calculatedHeight = Math.floor(windowWidth - (windowWidth * (this.percentage / 100)))
+            const calculatedHeight = Math.floor(windowWidth - (windowWidth * (this.percentage / 100)))
             ksuPickContainer.style.height = calculatedHeight + 'px'
         }
         const ksuPick = this.$el.querySelector('.image-hidden')
