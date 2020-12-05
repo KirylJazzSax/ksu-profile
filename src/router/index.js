@@ -30,11 +30,6 @@ const routes = [
         component: () => import('../views/Awards.vue')
     },
     {
-        path: '/photos',
-        name: 'Photos',
-        component: () => import('../views/Photos.vue')
-    },
-    {
         path: '/immersive',
         name: 'Immersive',
         component: () => import('../views/Immersive.vue')

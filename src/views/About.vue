@@ -51,7 +51,8 @@ export default {
 </script>  
 <style>
     .about-text {
-        background-color: rgba(99, 50, 62, 1);
+        /* background-color: rgba(99, 50, 62, 1); */
+        background-color: #926f55;
         text-align: justify;
         width: 50%;
         height: calc(100vh - 151px);
@@ -67,6 +68,7 @@ export default {
         background-position: 47%;
         position: absolute;
         display: flex;
+        font-size: 14px;
     }
     .image-hidden {
         display: none;
@@ -83,7 +85,7 @@ export default {
     #bottom .plane {
         background: rgba(99, 50, 62, 1);
     }
-    @media screen and (min-height: 800px) {
+    /* @media screen and (min-height: 800px) {
         .about-text {
             font-size: 17px;
         }
@@ -102,7 +104,7 @@ export default {
         .about-text {
             font-size: 20px;
         }
-    }
+    } */
     @media screen and (max-width: 992px) {
         .about-text {
             width: 100%;

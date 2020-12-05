@@ -16,55 +16,90 @@
                 audios: [
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/bach_fest.jpg',
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
                     },
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/console.jpg',
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
                     },
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/cyngus_trio.jpg',
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
                     },
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/get_event_image.jpg',
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
                     },
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/accident.jpg',
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
                     },
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/hannah.jpg',
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
                     },
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/iceberg_uartet.jpg',
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
                     },
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/mahler.jpg',
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
                     },
                     {
                         title: 'My audio',
-                        image: 'img/happy_little_accident.jpg',
+                        image: 'img/matt.jpg',
+                        imageHeight: 320,
+                        description: 'Amaizing description',
+                        audio: 'audio/happy_little_accidant_andre.wav'
+                    },
+                    {
+                        title: 'My audio',
+                        image: 'img/odyssey.jpg',
+                        imageHeight: 320,
+                        description: 'Amaizing description',
+                        audio: 'audio/happy_little_accidant_andre.wav'
+                    },
+                    {
+                        title: 'My audio',
+                        image: 'img/quartet.jpg',
+                        imageHeight: 320,
+                        description: 'Amaizing description',
+                        audio: 'audio/happy_little_accidant_andre.wav'
+                    },
+                    {
+                        title: 'My audio',
+                        image: 'img/sunny_night.jpg',
+                        imageHeight: 320,
+                        description: 'Amaizing description',
+                        audio: 'audio/happy_little_accidant_andre.wav'
+                    },
+                    {
+                        title: 'My audio',
+                        image: 'img/yuki.jpg',
+                        imageHeight: 320,
+                        description: 'Amaizing description',
+                        audio: 'audio/happy_little_accidant_andre.wav'
+                    },
+                    {
+                        title: 'My audio',
+                        image: 'img/zocha.jpg',
                         imageHeight: 320,
                         description: 'Amaizing description',
                         audio: 'audio/happy_little_accidant_andre.wav'
@@ -76,12 +111,22 @@
 </script>
 <style>
     .audios {
-        flex-wrap: wrap;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 280px);
         justify-content: space-between;
+        /* flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between; */
+    }
+    @media screen and (max-width: 871px) {
+        .audios {
+            justify-content: space-around;
+        }
     }
     @media screen and (max-width: 600px) {
         .audios {
+            flex-wrap: wrap;
+            display: flex;
             justify-content: center;
         }
     }

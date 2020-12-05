@@ -24,9 +24,6 @@
                             <router-link class-active="active" class="nav-link" to="/immersive">Immersive</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link class-active="active" class="nav-link" to="/photos">Photos</router-link>
-                        </li>
-                        <li class="nav-item">
                             <router-link class-active="active" class="nav-link" to="/awards">Awards</router-link>
                         </li>
                         <li class="nav-item">

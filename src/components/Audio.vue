@@ -50,6 +50,10 @@ export default {
         })
         const img = this.$el.querySelector('img')
         img.onload = () => {
+            console.log(img.parentNode)
+            if (img.parentNode) {
+                img.parentNode.style.height = 'auto'
+            }
             this.isLoading = false
         }
     },
@@ -68,7 +72,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         row-gap: 10px;
-        width: 23%;
+        width: 100%;
         justify-content: center;
     }
     .audio {
@@ -98,7 +102,19 @@ export default {
     audio {
         outline: none;
     }
-    @media screen and (max-width: 1100px) {
+    .spinner.spinner--plane {
+        margin: auto;
+    }
+    #top .plane {
+        background: rgba(99, 50, 62, 1);
+    }
+    #middle .plane {
+        background: rgb(49, 25, 31) !important;
+    }
+    #bottom .plane {
+        background: rgba(99, 50, 62, 1);
+    }
+    /* @media screen and (max-width: 1100px) {
         .audio-container {
             width: 45%;
         }
@@ -106,25 +122,26 @@ export default {
         .image img {
             max-width: 44%;
         }
-    }
-    @media screen and (max-width: 894px) {
+    } */
+    /* @media screen and (max-width: 894px) {
         .image img {
             max-width: 52%;
         }
-    }
-    @media screen and (max-width: 768px) {
+    } */
+    /* @media screen and (max-width: 768px) {
         .image img {
             max-width: 62%;
         }
-    }
+    } */
     @media screen and (max-width: 600px) {
         .audio-container {
-            width: 90%;
+            /* width: 90%; */
             margin-bottom: 20px;
+            display: grid;
         }
         .image img {
             margin-top: 0;
-            max-width: 80%;
+            /* max-width: 80%; */
         }
     }
 </style>
