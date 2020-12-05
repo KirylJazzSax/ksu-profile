@@ -50,7 +50,6 @@ export default {
         })
         const img = this.$el.querySelector('img')
         img.onload = () => {
-            console.log(img.parentNode)
             if (img.parentNode) {
                 img.parentNode.style.height = 'auto'
             }
