@@ -1,7 +1,7 @@
 <template>
     <div class="works">
         <div class="work">
-            <Audios/>
+            <Audios :audios="audios"/>
         </div>
         <div class="work">
             <Videos/>
@@ -17,6 +17,102 @@
         components: {
             Audios,
             Videos
+        },
+        data() {
+          return {
+            audios: [
+              {
+                title: 'My audio',
+                image: 'img/bach_fest.jpg',
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/console.jpg',
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/cyngus_trio.jpg',
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/get_event_image.jpg',
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/accident.jpg',
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/hannah.jpg',
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/iceberg_uartet.jpg',
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/mahler.jpg',
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/matt.jpg',
+                imageHeight: 320,
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/odyssey.jpg',
+                imageHeight: 320,
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/quartet.jpg',
+                imageHeight: 320,
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/sunny_night.jpg',
+                imageHeight: 320,
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/yuki.jpg',
+                imageHeight: 320,
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+              {
+                title: 'My audio',
+                image: 'img/zocha.jpg',
+                imageHeight: 320,
+                description: 'Amaizing description',
+                audio: 'audio/happy_little_accidant_andre.wav'
+              },
+            ],
+          }
         },
         mounted() {
             this.$el.style.maxHeight = 'fit-content'

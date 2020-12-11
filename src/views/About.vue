@@ -52,13 +52,14 @@ export default {
 <style>
     .about-text {
         /* background-color: rgba(99, 50, 62, 1); */
-        background-color: #926f55;
+        /*background-color: #926f55;*/
+        background-color: #edfaff;
         text-align: justify;
         width: 50%;
         height: calc(100vh - 151px);
         z-index: 1;
         margin-left: auto;
-        color: white;
+        color: rgba(0, 0, 0, 0.7);
     }
     .ksu-picture {
         width: 50%;

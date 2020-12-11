@@ -92,7 +92,7 @@ export default {
         height: 220px;
     }
     .image img {
-        max-width: 70%;
+        max-width: 100%;
         margin-top: 20px;
     }
     .image img:hover {
