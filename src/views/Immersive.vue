@@ -104,6 +104,7 @@
     .immersive-text-with-picture {
       background-size: cover;
       background-position: center;
+      position: relative;
       .immersive-text {
         text-align: justify;
         width: 50%;
@@ -122,6 +123,7 @@
       }
 
       .ksu-immersive-picture {
+        display: flex;
         width: 50%;
         height: calc(100vh - 151px);
         /* background-image: url("../assets/ksu-back.jpg"); */
