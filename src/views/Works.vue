@@ -22,94 +22,108 @@
           return {
             audios: [
               {
-                title: 'My audio',
-                image: 'img/bach_fest.jpg',
+                title: 'Alicia Choi. George Enescu. Impressions d\'enfance Op. 28 (Me╠Бne╠Бtrier)',
+                image: 'img/01.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/alicia_choi.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/console.jpg',
+                title: 'Yuki Isami (flute) Natsuki Hiratsuka (piano). M. Miyagi Haru na Umi',
+                image: 'img/02.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/yuki.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/cyngus_trio.jpg',
+                title: 'Iceberg Quartet. J. Haydn String Quartet No.4 (Adagio)',
+                image: 'img/03.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/iceberg.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/get_event_image.jpg',
+                title: 'Liszt - Prelude and Fuge',
+                image: 'img/04.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/liszt.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/accident.jpg',
+                title: 'Duo Bednarz - Hiratsuka Giya Kancheli Sunny Night (arr. Claude Marc Bourget)',
+                image: 'img/05.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/bednarz.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/hannah.jpg',
+                title: 'Mozart Qaurtet in Es-Dur Larghetto',
+                image: 'img/06.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/mozart.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/iceberg_uartet.jpg',
+                title: 'K. Schubring - Music for a Particulary Sparkling Afternoon',
+                image: 'img/07.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/schubring.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/mahler.jpg',
+                title: 'JACK Quartet. Zosha Di Castri. Quartet No. 1',
+                image: 'img/08.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/jack.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/matt.jpg',
+                title: 'NYO Mahler 5. Trauermarsch In gemessenem Schritt Streng Wie ein Kondukt',
+                image: 'img/09.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/nyo.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/odyssey.jpg',
+                title: 'Abaco Orchester Natalya Boeva Mahler Kinder-Totenlieder. Nun seh ich wohl...',
+                image: 'img/10.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/abaco.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/quartet.jpg',
+                title: 'K. Hoover Canyon Echoes (Serenade)',
+                image: 'img/11.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/hoover.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/sunny_night.jpg',
+                title: 'Robert Silverman. Fryderyk Chopin Minute Waltz Op. 64 No. 1 ',
+                image: 'img/12.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/silverman.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/yuki.jpg',
+                title: 'Tom Beghin Beethoven Appassionata',
+                image: 'img/13.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/beghin.wav'
               },
               {
-                title: 'My audio',
-                image: 'img/zocha.jpg',
+                title: 'Bach Festival Orchestra, Julian Pre╠Бgardien Bach Johannes-Passion',
+                image: 'img/14.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
-                audio: 'audio/happy_little_accidant_andre.wav'
+                audio: 'audio/bach_fest.wav'
+              },
+              {
+                title: 'Andre╠Б Wickenheiser',
+                image: 'img/15.jpg',
+                imageHeight: 320,
+                description: 'Amaizing description',
+                audio: 'audio/andre.wav'
+              },
+              {
+                title: 'Cole Birney-Stewart The World Without Us',
+                image: 'img/16.jpg',
+                imageHeight: 320,
+                description: 'Amaizing description',
+                audio: 'audio/birney.wav'
               },
             ],
           }
