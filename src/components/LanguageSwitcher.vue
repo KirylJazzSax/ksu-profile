@@ -1,7 +1,24 @@
 <template>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <span class="dropdown-item" v-for="(lang, index) in langs" :key="index" @click="setLang" :data-lang="index">{{ lang }}</span>
-    </div>
+  <div>
+    <v-menu transition="slide-x-transition" offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <span class="language-text">Language</span>
+        <v-btn icon v-on="on" v-bind="attrs">
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item
+            v-for="(item, index) in langs"
+            :key="index"
+            @click="setLang(index)"
+            class="cursor-pointer"
+        >
+          <v-list-item-title>{{ item }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+  </div>
 </template>
 
 <script>
@@ -18,16 +35,16 @@ export default {
     },
 
     methods: {
-        setLang: function(event) {
-            this.$root.$i18n.locale = event.target.dataset['lang']
+        setLang: function(lang) {
+            this.$root.$i18n.locale = lang
         }    
     }
     
 }
 </script>
 
-<style>
-    span:hover {
-        cursor: pointer;
-    }
+<style lang="scss">
+  .language-text {
+    font-size: 1rem;
+  }
 </style>

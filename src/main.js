@@ -8,6 +8,7 @@ import Notifications from 'vue-notification'
 import VuePlyr from 'vue-plyr'
 import 'vue-plyr/dist/vue-plyr.css'
 import NProgress from 'vue-nprogress'
+import vuetify from '@/plugins/vuetify'
 
 const nprogress = new NProgress()
 
@@ -21,6 +22,7 @@ Vue.use(NProgress)
 new Vue({
   router,
   i18n,
-  nprogress,  
+  nprogress,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')
