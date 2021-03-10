@@ -51,7 +51,7 @@
         width: 50%;
         height: calc(100vh - 151px);
         z-index: 1;
-        margin-left: auto;
+        margin-right: auto;
         min-height: 150px;
     }
     .contact-text a {
@@ -59,14 +59,15 @@
         font-size: 1.3em;
     }
     .contact-ksu-picture {
-        width: 50%;
-        height: 100%;
-        /* background-image: url("../assets/ksu-back.jpg"); */
-        background-size: cover;
-        position: absolute;
-        background-position: 47%;
-        display: flex;
-        justify-content: center;
+      width: 50%;
+      height: 100%;
+      /* background-image: url("../assets/ksu-back.jpg"); */
+      background-size: cover;
+      position: absolute;
+      background-position: 47%;
+      display: flex;
+      justify-content: center;
+      right: 0;
     }
     .image-hidden {
         display: none;

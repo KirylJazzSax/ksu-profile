@@ -1,6 +1,6 @@
 <template>
     <div class="videos d-flex p-3">
-        <div class="video-container" v-for="(video, index) in videos" :key="index">
+        <div class="video-container py-2" v-for="(video, index) in videos" :key="index">
             <div class="lead mb-3">{{ video.title }}</div>
             <vue-plyr>
                 <!-- <video
@@ -41,11 +41,17 @@
         },
     }
 </script>
-<style>
+<style lang="scss">
     .video-container {
-        display: grid;
-        justify-items: center;
-        width: 45%;
+      display: grid;
+      justify-items: center;
+      width: 45%;
+      border-radius: 7px;
+      background-color: #fff;
+      transition: all 0.25s ease;
+      &:hover {
+        transform: scale(1.01);
+      }
     }
     .video-description {
         align-content: center;

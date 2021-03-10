@@ -1,10 +1,10 @@
 <template>
     <div class="about d-flex flex-column text-dark position-relative">
-        <div class="ksu-picture">
-            <plane v-show="imageLoading"></plane>
-            <img class="image-hidden" src="../assets/ksu-back-another.jpg" alt="">
-        </div>
-        <vue-custom-scrollbar class="about-text p-5" :settings="settings">
+      <div class="ksu-picture">
+<!--        <plane v-show="imageLoading"></plane>-->
+        <img class="image-hidden" src="../assets/ksu-back-another.jpg" alt="">
+      </div>
+        <vue-custom-scrollbar class="about-text p-4" :settings="settings">
             {{ $t('about') }}
         </vue-custom-scrollbar>
     </div>
@@ -12,12 +12,12 @@
 <script>
 import vueCustomScrollbar from 'vue-custom-scrollbar'
 import "vue-custom-scrollbar/dist/vueScrollbar.css"
-import Plane from 'vue-loading-spinner/src/components/Plane'
+// import Plane from 'vue-loading-spinner/src/components/Plane'
 
 export default {
     components: {
         vueCustomScrollbar,
-        Plane
+        // Plane
     },
  
     data() {
@@ -34,42 +34,53 @@ export default {
     },
     mounted() {
         // this.percentage = ((5848 - 3898) / 5848) * 100
-        this.percentage = ((6000 - 4000) / 6000) * 100
-        const ksuPickContainer = this.$el.querySelector('.ksu-picture')
-        const windowWidth = window.innerWidth
-        if (windowWidth <= this.breakPoint) {
-            const calculatedHeight = Math.floor(windowWidth - (windowWidth * (this.percentage / 100)))
-            ksuPickContainer.style.height = calculatedHeight + 'px'
-        }
-        const ksuPick = this.$el.querySelector('.image-hidden')
-        ksuPick.onload = () => {
-            ksuPickContainer.style.backgroundImage = `url('${ksuPick.src}')`
-            this.imageLoading = false
-        }   
+        // this.percentage = ((6000 - 4000) / 6000) * 100
+        // const ksuPickContainer = this.$el.querySelector('.ksu-picture')
+        // const windowWidth = window.innerWidth
+        // if (windowWidth <= this.breakPoint) {
+        //     const calculatedHeight = Math.floor(windowWidth - (windowWidth * (this.percentage / 100)))
+        //     ksuPickContainer.style.height = calculatedHeight + 'px'
+        // }
+        // const ksuPick = this.$el.querySelector('.image-hidden')
+        // ksuPick.onload = () => {
+        //     ksuPickContainer.style.backgroundImage = `url('${ksuPick.src}')`
+        //     this.imageLoading = false
+        // }
     }
 }
 </script>  
-<style>
+<style lang="scss">
+    .about {
+      background-image: url("../assets/ksu-back-another.jpg");
+      background-size: cover;
+      background-position: center center;
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
     .about-text {
         /* background-color: rgba(99, 50, 62, 1); */
         /*background-color: #926f55;*/
-        background-color: #edfaff;
+        /*background-color: #edfaff;*/
+      /*background-color: #E0F2F1;*/
         text-align: justify;
+        /*color: grey !important;*/
+        background-color: rgba(255,255,255, 0.7);
         width: 50%;
         height: calc(100vh - 151px);
         z-index: 1;
-        margin-left: auto;
+        margin-right: auto;
         color: rgba(0, 0, 0, 0.7);
     }
     .ksu-picture {
-        width: 50%;
-        height: 100%;
-        /* background-image: url("../assets/ksu-back.jpg"); */
-        background-size: cover;
-        background-position: 47%;
-        position: absolute;
-        display: flex;
-        font-size: 14px;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      /* background-image: url("../assets/ksu-back.jpg"); */
+      background-size: cover;
+      background-position: 100%;
+      position: absolute;
+      display: flex;
+      font-size: 14px;
     }
     .image-hidden {
         display: none;

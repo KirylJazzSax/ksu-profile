@@ -1,9 +1,15 @@
 <template>
     <vue-custom-scrollbar class="awards-container">
-        <plane v-show="imageLoading"/>
-        <img class="image-hidden" src="../assets/ksu-back.jpg" alt="">
+<!--        <plane v-show="imageLoading"/>-->
+<!--        <img class="image-hidden" src="@/assets/ksu-back.jpg" alt="">-->
         <div class="list-group awards-list">
-            <a :class="{'list-group-item': true, 'list-group-item-action': true, 'award': true, 'disabled': award.link === null}" 
+            <a :class="{
+              'm-1': true,
+              'list-group-item': false,
+               'list-group-item-action': false,
+                'award': true,
+                 'disabled': award.link === null
+            }"
                 target="_blank" 
                 :href="award.link" 
                 :key="index" 
@@ -17,13 +23,13 @@
 <script>
     import vueCustomScrollbar from 'vue-custom-scrollbar'
     import "vue-custom-scrollbar/dist/vueScrollbar.css"
-    import Plane from 'vue-loading-spinner/src/components/Plane'
+    // import Plane from 'vue-loading-spinner/src/components/Plane'
 
     export default {
         name: "Awards",
         components: {
             vueCustomScrollbar,
-            Plane
+            // Plane
         },
         data() {
             return {
@@ -77,11 +83,11 @@
             }
         },
         mounted() {
-            const awardPickture = this.$el.querySelector('.image-hidden')
-            awardPickture.onload = () => {
-                awardPickture.parentNode.style.backgroundImage = `url('${awardPickture.src}')`
-                this.imageLoading = false
-            }
+            // const awardPickture = this.$el.querySelector('.image-hidden')
+            // awardPickture.onload = () => {
+            //     awardPickture.parentNode.style.backgroundImage = `url('${awardPickture.src}')`
+            //     this.imageLoading = false
+            // }
         }
     }
 </script>
@@ -94,8 +100,10 @@
         background-position: center;
         height: calc(100vh - 151px);
         overflow: scroll;
-        background-color: #7f828b;
+        background-color: #607D8B;
         position: relative;
+      background-image: url("../assets/awards-back.jpg");
+      background-size: cover;
 
         .spinner.spinner--plane {
             position: absolute;
@@ -118,6 +126,7 @@
         }
 
         .awards-list {
+          background-color: rgba(255, 255, 255, 0.3);
 
             .list-group-item {
                 background-color: rgba(255, 255, 255, 0.2);
@@ -129,7 +138,9 @@
                 }
             }
             .award {
-                text-align: left;
+              text-align: left;
+              //text-decoration: none;
+              color: #000;
             }
             .disabled {
                 color: rgba(255, 255, 255, 0.7);

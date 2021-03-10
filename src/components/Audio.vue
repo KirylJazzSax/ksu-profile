@@ -1,12 +1,36 @@
 <template>
-  <div class="audio-container">
+  <div class="audio-container mb-4">
     <!-- <div class="lead mb-3 display-deckstop">{{ audio.title }}</div> -->
-    <div :class="{'mb-3': true, 'image': true}">
+    <div :class="{'image': true}">
       <plane v-show="isLoading"></plane>
       <img v-show="!isLoading" :src="audio.image"
            @click="showLightbox(audio.image)"
            class="img-fluid">
-      <div v-show="!isLoading && audio.title !== null" class="image-title">{{ audio.title }}</div>
+      <div
+          class="btn audio-link"
+          @click="goTo(audio.link.url)"
+          @mouseenter="musicIconEnter"
+          @mouseleave="musicIconLeave"
+          v-if="audio.hasOwnProperty('link')"
+      >
+        <div ref="audio_link"
+           target="_blank"
+           class="audio-button mr-1 text-decoration-none">
+          {{ audio.link.title }}
+        </div>
+        <i class="bi-music-note-list"></i>
+      </div>
+      <div
+          v-show="!isLoading && audio.title.length > 0"
+          :style="[audio.hasOwnProperty('height') ? {'height': audio.height + 'px'} : {} ]"
+          :class="{
+            'image-title': true,
+            'with-button': false,
+          }">
+        <div :key="index" v-for="(title, index) in audio.title">
+          {{ title }}
+        </div>
+      </div>
     </div>
     <vue-plyr>
       <audio controls crossorigin playsinline>
@@ -26,6 +50,7 @@
 <script>
 import Lightbox from 'vue-my-photos'
 import Plane from 'vue-loading-spinner/src/components/Plane'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 export default {
   name: 'Audio',
@@ -36,13 +61,19 @@ export default {
   data() {
     return {
       images: [],
-      isLoading: true
+      isLoading: true,
+      timeOutIn: null,
+      timeOutOut: null
     }
   },
   props: {
     audio: Object
   },
   mounted() {
+    // #D7CCC8 нав
+    // картинка и текст местами
+    // immersive картинки в вертикально ссылки внизу
+    // portfolio иконка
     this.images.push({
       'name': this.audio.image,
       'alt': '',
@@ -61,6 +92,21 @@ export default {
     showLightbox: function (imageName) {
       this.$refs.lightbox.show(imageName);
     },
+    musicIconEnter() {
+      this.$refs.audio_link.style.width = '160px'
+      clearTimeout(this.timeOutIn)
+      clearTimeout(this.timeOutOut)
+      this.timeOutIn = setTimeout(() => this.$refs.audio_link.style.opacity = 1, 200)
+    },
+    musicIconLeave() {
+      this.$refs.audio_link.style.opacity = 0
+      clearTimeout(this.timeOutOut)
+      clearTimeout(this.timeOutIn)
+      this.timeOutOut = setTimeout(() => this.$refs.audio_link.style.width = '0', 200)
+    },
+    goTo(url) {
+      window.open(url, '_blank')
+    }
   },
 }
 </script>
@@ -89,7 +135,6 @@ export default {
   display: grid;
   width: 50%;
 }
-
 .image {
   display: grid;
   justify-items: center;
@@ -97,6 +142,32 @@ export default {
   z-index: 1;
   height: 220px;
   position: relative;
+  .audio-link {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(0deg, rgba(142,188,208,1) 100%, rgba(183,228,247,1) 100%);
+    transition: all .35s ease;
+
+    .audio-button {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      color: #fff;
+      transition: all .35s ease;
+
+      &:hover {
+        color: #F5F5F5;
+      }
+    }
+  }
+  &:hover {
+    .image-title {
+      opacity: 1;
+      //height: 75px;
+    }
+  }
   &img {
     max-width: 100%;
     margin-top: 20px;
@@ -113,8 +184,22 @@ export default {
     color: #fff;
     bottom: 0;
     left: 0;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    opacity: 0.9;
+    justify-content: center;
+    background: linear-gradient(0deg, rgba(142,188,208,1) 100%, rgba(183,228,247,1) 100%);
+    transition: all .35s ease;
+
+    &.with-button {
+      height: 100px;
+    }
+
+    .audio-button {
+      background-color: #ffd8c5;
+      color: #4a5464;
+    }
   }
 }
 

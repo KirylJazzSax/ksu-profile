@@ -7,9 +7,9 @@ module.exports = {
       "enableInSFC": true
     }
   },
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/ksu-profile/'
-    : '/',
+  // publicPath: process.env.NODE_ENV === 'production'
+  //   ? '/ksu-profile/'
+  //   : '/',
   configureWebpack: {
     devServer: {
         watchOptions: {

@@ -3,127 +3,142 @@
         <div class="work">
             <Audios :audios="audios"/>
         </div>
-        <div class="work">
-            <Videos/>
-        </div>
+<!--        <div class="work">-->
+<!--            <Videos/>-->
+<!--        </div>-->
     </div>
 </template>
 
 <script>
     import Audios from '@/components/Audios'
-    import Videos from '@/components/Videos'
 
     export default {
         components: {
             Audios,
-            Videos
         },
         data() {
           return {
             audios: [
               {
-                title: 'Alicia Choi. George Enescu. Impressions d\'enfance Op. 28 (Me╠Бne╠Бtrier)',
+                title: ['Alicia Choi', 'G. Enescu “Impressions d\'enfance”'],
                 image: 'img/01.jpg',
                 description: 'Amaizing description',
                 audio: 'audio/alicia_choi.wav'
               },
               {
-                title: 'Yuki Isami (flute) Natsuki Hiratsuka (piano). M. Miyagi Haru na Umi',
+                title: ['Yuki Isami, Natsuki Hiratsuka', 'M. Miyagi “Haru na Umi“'],
                 image: 'img/02.jpg',
                 description: 'Amaizing description',
                 audio: 'audio/yuki.wav'
               },
               {
-                title: 'Iceberg Quartet. J. Haydn String Quartet No.4 (Adagio)',
+                title: ['Iceberg Quartet', 'J. Haydn “String Quartet op. 76”'],
                 image: 'img/03.jpg',
                 description: 'Amaizing description',
                 audio: 'audio/iceberg.wav'
               },
               {
-                title: 'Liszt - Prelude and Fuge',
+                title: ['Maria Budacova', 'F. Liszt “Prelude and Fuge”'],
                 image: 'img/04.jpg',
                 description: 'Amaizing description',
                 audio: 'audio/liszt.wav'
               },
               {
-                title: 'Duo Bednarz - Hiratsuka Giya Kancheli Sunny Night (arr. Claude Marc Bourget)',
+                title: ['Duo Bednarz - Hiratsuka', 'G. Kancheli “Sunny Night”'],
                 image: 'img/05.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/bednarz.wav'
+                audio: 'audio/bednarz.wav',
+                link: {
+                  url: 'https://metis-islands.bandcamp.com/album/giya-kancheli-sunny-night',
+                  title: 'Checkout more'
+                }
               },
               {
-                title: 'Mozart Qaurtet in Es-Dur Larghetto',
+                title: ['Z4 Quartet', 'W. A. Mozart “Piano Quartet K. 493”'],
                 image: 'img/06.jpg',
                 description: 'Amaizing description',
                 audio: 'audio/mozart.wav'
               },
               {
-                title: 'K. Schubring - Music for a Particulary Sparkling Afternoon',
+                title: ['The Cygnus Trio', 'K. Schubring “Music for a Particulary Sparkling Afternoon“'],
                 image: 'img/07.jpg',
                 description: 'Amaizing description',
-                audio: 'audio/schubring.wav'
+                audio: 'audio/schubring.wav',
+                height: 125,
+                link: {
+                  url: 'https://thecygnustrio.com/store',
+                  title: 'Checkout more'
+                }
               },
               {
-                title: 'JACK Quartet. Zosha Di Castri. Quartet No. 1',
+                title: ['JACK Quartet', 'Zosha Di Castri “Quartet No. 1”'],
                 image: 'img/08.jpg',
                 description: 'Amaizing description',
                 audio: 'audio/jack.wav'
               },
               {
-                title: 'NYO Mahler 5. Trauermarsch In gemessenem Schritt Streng Wie ein Kondukt',
+                title: ['National Youth Orchestra of Canada, Michael Franci', 'G. Mahler “Symphony no. 5”'],
                 image: 'img/09.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
                 audio: 'audio/nyo.wav'
               },
               {
-                title: 'Abaco Orchester Natalya Boeva Mahler Kinder-Totenlieder. Nun seh ich wohl...',
+                title: ['Abaco Orchester, Vitali Alekseenok, Natalya Boeva', 'G. Mahler “Kindertotenlieder”'],
                 image: 'img/10.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
                 audio: 'audio/abaco.wav'
               },
               {
-                title: 'K. Hoover Canyon Echoes (Serenade)',
+                title: ['Darroch/Cowan Duo', 'K. Hoover “Canyon Echoes”'],
                 image: 'img/11.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
                 audio: 'audio/hoover.wav'
               },
               {
-                title: 'Robert Silverman. Fryderyk Chopin Minute Waltz Op. 64 No. 1 ',
+                title: ['Robert Silverman', 'F.Chopin “Minute Waltz Op. 64”'],
                 image: 'img/12.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
                 audio: 'audio/silverman.wav'
               },
               {
-                title: 'Tom Beghin Beethoven Appassionata',
+                title: ['Tom Beghin', 'L. Beethoven “Appassionata op. 57”'],
                 image: 'img/13.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
                 audio: 'audio/beghin.wav'
               },
               {
-                title: 'Bach Festival Orchestra, Julian Pre╠Бgardien Bach Johannes-Passion',
+                title: ['Bach Festival Orchestra, Julian Pregardien', 'J. S. Bach “Johannes-Passion”'],
                 image: 'img/14.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
                 audio: 'audio/bach_fest.wav'
               },
               {
-                title: 'Andre╠Б Wickenheiser',
+                title: ['André Wickenheiser', '“A Happy Little Accident”'],
                 image: 'img/15.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
-                audio: 'audio/andre.wav'
+                audio: 'audio/andre.wav',
+                link: {
+                  url: 'https://www.andrewickenheiser.com/',
+                  title: 'Checkout on more'
+                }
               },
               {
-                title: 'Cole Birney-Stewart The World Without Us',
+                title: ['Cole Birney-Stewart', '“The World Without Us”'],
                 image: 'img/16.jpg',
                 imageHeight: 320,
                 description: 'Amaizing description',
-                audio: 'audio/birney.wav'
+                audio: 'audio/birney.wav',
+                link: {
+                  url: 'https://www.colebirneystewart.com',
+                  title: 'Checkout more'
+                }
               },
             ],
           }
@@ -141,6 +156,7 @@
     }
     .work {
         width: 100%;
+      overflow: hidden;
     }
     .display-tablet {
         display: none;

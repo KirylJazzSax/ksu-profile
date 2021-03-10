@@ -7,7 +7,7 @@
         </div>
         <notifications group="media" position="bottom right"/>
         <div class="navbar-container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light px-5">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
                 </div>
             </nav>
         </div>
-        <div class="container-fluid p-0">
+        <div class="container-fluid">
             <router-view class="router-view" />
         </div>
     </div>
@@ -81,7 +81,9 @@
         font-family: raleway-semi-bold;
         border-bottom: 1px solid rgba(0, 0, 0, 0.7);
         color: #fff;
-        background: linear-gradient(0deg, rgba(142,188,208,1) 100%, rgba(183,228,247,1) 100%);
+        /*background: linear-gradient(0deg, rgba(142,188,208,1) 100%, rgba(183,228,247,1) 100%);*/
+      /*background: #0090b7;*/
+      background: #0093ae;
     }
     .name {
         font-size: 1.5em;
@@ -91,14 +93,16 @@
     }
     .navbar-container {
         width: 100%;
-        background-color: #f8f9fa;
+        background-color: #EFEBE9;
     }
     .navbar-container nav {
         max-width: 1400px;
         margin: auto;
     }
     .container-fluid {
-        background-color: #f8f9fa;
+        /*background-color: #f8f9fa;*/
+      /*background-color: #58c0e9;*/
+      background-color: #EFEBE9;
     }
     .container-fluid .router-view {
         max-width: 1400px;
